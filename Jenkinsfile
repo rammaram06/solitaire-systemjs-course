@@ -1,5 +1,5 @@
 stage 'CI'
-node('win2012r2') {
+node('10.0.2.15') {
     checkout scm
 
   //git branch: 'jenkins2-course', url: 'https://github.com/rammaram06/solitaire-systemjs-course.git'
@@ -35,7 +35,7 @@ node('win2012r2') {
     
 
 def runTests(browser) {
-    node('win2012r2') {
+    node('10.0.2.15') {
         bat 'del *.* /F /Q'
         unstash 'everything'
         bat "npm run test-single-run -- --browsers ${browser}"
